@@ -12,13 +12,13 @@ export default function Header() {
             Home
           </Link>
           <Link to="/" className="hover:underline">
-            Products
+            Fragrances
           </Link>
           <Link to="/" className="hover:underline">
             About
           </Link>
           <Link to="/" className="hover:underline">
-            Contact
+            Order
           </Link>
         </nav>
       </div>
