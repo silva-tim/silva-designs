@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="h-52 flex items-center">
-      <div className="basis-full justify-center flex flex-wrap gap-5">
-        <Link to="/" className="font-raleway text-4xl basis-full text-center">
+    <div className="flex items-center h-48">
+      <div className="flex flex-wrap justify-center gap-5 basis-full">
+        <Link to="/" className="text-4xl text-center font-raleway basis-full">
           S I L V A &nbsp; D E S I G N S
         </Link>
-        <nav className="flex gap-5 font-playfair tracking-wider underline-offset-8">
+        <nav className="flex gap-5 tracking-wider font-playfair underline-offset-8">
           <Link to="/" className="hover:underline">
             Home
           </Link>
