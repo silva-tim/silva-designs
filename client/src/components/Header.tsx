@@ -26,7 +26,7 @@ export default function Header() {
             Fragrances
           </Link>
           <Link
-            to="/"
+            to="/about"
             className={`hover:underline ${path === "/about" && `underline`}`}
           >
             About
