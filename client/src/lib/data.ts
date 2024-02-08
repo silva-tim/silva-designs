@@ -3,7 +3,7 @@ import { Candle } from "../types/Candle";
 export const candles: Candle[] = [
   {
     name: "Blooming Bliss",
-    id: 1,
+    id: "1",
     price: 15,
     image: "",
     alt: "Blooming Bliss Candle",
@@ -12,7 +12,7 @@ export const candles: Candle[] = [
   },
   {
     name: "Festive Melody",
-    id: 2,
+    id: "2",
     price: 15,
     image: "",
     alt: "Festive Melody Candle",
@@ -21,7 +21,7 @@ export const candles: Candle[] = [
   },
   {
     name: "Herbal Serenity",
-    id: 3,
+    id: "3",
     price: 15,
     image: "/images/products/herbal_serenity.jpg",
     alt: "Herbal Serenity Candle",

@@ -22,6 +22,7 @@ export default function Favorites() {
             prodId={favorite.id}
             prodImg={favorite.image}
             prodName={favorite.name}
+            key={favorite.id}
           />
         ))}
       </div>

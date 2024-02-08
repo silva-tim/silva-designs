@@ -1,6 +1,6 @@
 export type Candle = {
   name: string;
-  id: number;
+  id: string;
   price: number;
   image: string;
   alt: string;
