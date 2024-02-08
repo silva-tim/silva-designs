@@ -5,7 +5,7 @@ export default function Order() {
       <form action="">
         <div className="flex flex-wrap">
           <span className="basis-full">Name</span>
-          <div className="flex justify-between gap-5 basis-full">
+          <div className="flex gap-5 basis-full">
             <input
               type="text"
               name=""
@@ -23,8 +23,23 @@ export default function Order() {
           </div>
         </div>
         <div className="flex flex-wrap">
-          <span className="basis-full">Email Address</span>
-          <input type="email" className="bg-slate-300 basis-full" />
+          <span className="basis-full">Contact Information</span>
+          <div className="flex gap-5 basis-full">
+            <input
+              type="email"
+              className="bg-slate-300 basis-1/2"
+              placeholder="Email"
+            />
+            <input
+              type="tel"
+              className="bg-slate-300 basis-1/2"
+              placeholder="Phone Number"
+            />
+          </div>
+          <input type="radio" id="email" name="contact" />
+          <label htmlFor="email">Email</label>
+          <input type="radio" id="text" name="contact" />
+          <label htmlFor="email">Text</label>
         </div>
       </form>
     </div>

@@ -9,12 +9,12 @@ export default function Home() {
 
   return (
     <div className="w-10/12 m-auto">
-      <div>
+      <section>
         <img src="/images/backgrounds/hero2.jpeg" alt="" />
-      </div>
-      <div className="mt-20">
+      </section>
+      <section id="favorites" className="mt-20">
         <Favorites />
-      </div>
+      </section>
     </div>
   );
 }
