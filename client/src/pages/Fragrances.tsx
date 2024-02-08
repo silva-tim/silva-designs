@@ -15,7 +15,7 @@ export default function Fragrances() {
       <div className="w-full py-3 border-b border-black">
         <span className="text-2xl font-playfair">Fragrances</span>
       </div>
-      <div className="flex mt-5 ">
+      <div className="flex flex-wrap mt-5">
         {candles?.map((candle) => (
           <ProductCard
             prodAlt={candle.alt}

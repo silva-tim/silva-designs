@@ -36,6 +36,7 @@ export default function Order() {
               placeholder="Phone Number"
             />
           </div>
+          <span>Preferred method of communication:</span>
           <input type="radio" id="email" name="contact" />
           <label htmlFor="email">Email</label>
           <input type="radio" id="text" name="contact" />
