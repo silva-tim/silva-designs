@@ -42,6 +42,7 @@ export default function Order() {
           <input type="radio" id="text" name="contact" />
           <label htmlFor="email">Text</label>
         </div>
+        <button className="w-full bg-red-300">Add Product</button>
       </form>
     </div>
   );
