@@ -10,7 +10,7 @@ export default function Header() {
         <Link to="/" className="text-4xl text-center font-raleway basis-full">
           S I L V A &nbsp; D E S I G N S
         </Link>
-        <nav className="flex gap-5 tracking-wider font-playfair underline-offset-8">
+        <nav className="flex gap-5 tracking-wider font-playfair underline-offset-[12px]">
           <Link
             to="/"
             className={`hover:underline ${path === "/" && `underline`}`}
