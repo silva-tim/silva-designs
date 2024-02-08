@@ -12,7 +12,9 @@ export default function Home() {
       <div>
         <img src="/images/backgrounds/hero2.jpeg" alt="" />
       </div>
-      <Favorites />
+      <div className="mt-20">
+        <Favorites />
+      </div>
     </div>
   );
 }
