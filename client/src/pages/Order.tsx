@@ -5,8 +5,7 @@ export default function Order() {
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [prefEmail, setPrefEmail] = useState();
-  const [prefText, prefText] = useState();
+  const [prefContact, setPrefContact] = useState<string>("Email");
 
   return (
     <section className="w-8/12 m-auto">
@@ -41,6 +40,7 @@ export default function Order() {
               className="bg-slate-300 basis-1/2"
               placeholder="Email"
               value={email}
+              name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
@@ -48,13 +48,28 @@ export default function Order() {
               className="bg-slate-300 basis-1/2"
               placeholder="Phone Number"
               value={phoneNumber}
+              name="phone"
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <span>Preferred method of communication:</span>
-          <input type="radio" id="email" name="contact" checked={} />
+          <input
+            type="radio"
+            id="email"
+            name="prefContact"
+            value="Email"
+            checked={prefContact === "Email"}
+            onChange={(e) => setPrefContact(e.target.value)}
+          />
           <label htmlFor="email">Email</label>
-          <input type="radio" id="phone" name="contact" />
+          <input
+            type="radio"
+            id="phone"
+            name="prefContact"
+            value="Text"
+            checked={prefContact === "Text"}
+            onChange={(e) => setPrefContact(e.target.value)}
+          />
           <label htmlFor="phone">Text</label>
         </div>
         <button className="w-full bg-red-300">Add Product</button>
