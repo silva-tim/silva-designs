@@ -5,6 +5,10 @@ export function getFavorites() {
   return favorites;
 }
 
+export function getCandles() {
+  return candles;
+}
+
 export function getCandle(id: string) {
   const candle = candles.find((candle) => candle.id === id);
   return candle;

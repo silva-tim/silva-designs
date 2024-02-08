@@ -14,7 +14,8 @@ export default function ProductDetails() {
   }, [prodId]);
 
   return (
-    <div className="w-10/12 m-auto">
+    <div className="w-8/12 m-auto">
+      <img src={candle?.image} alt={candle?.alt} />
       <span>{candle?.name}</span>
     </div>
   );
