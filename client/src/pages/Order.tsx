@@ -9,15 +9,17 @@ export default function Order() {
 
   return (
     <section className="w-8/12 m-auto">
-      <span className="text-2xl font-playfair">Order</span>
-      <form>
-        <div className="flex flex-wrap">
+      <div className="w-full py-3 mb-5 border-b border-black">
+        <span className="text-2xl font-playfair">Order</span>
+      </div>
+      <form className="px-2">
+        <div className="flex flex-wrap mb-2">
           <span className="basis-full">Name</span>
           <div className="flex gap-5 basis-full">
             <input
               type="text"
               name="firstName"
-              className=" bg-slate-300 basis-1/2"
+              className="p-2 outline outline-1 basis-1/2"
               placeholder="First"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -25,19 +27,19 @@ export default function Order() {
             <input
               type="text"
               name="lastName"
-              className=" bg-slate-300 basis-1/2"
+              className="p-2 outline outline-1 basis-1/2"
               placeholder="Last"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mb-2">
           <span className="basis-full">Contact Information</span>
           <div className="flex gap-5 basis-full">
             <input
               type="email"
-              className="bg-slate-300 basis-1/2"
+              className="p-2 basis-1/2 outline outline-1"
               placeholder="Email"
               value={email}
               name="email"
@@ -45,14 +47,16 @@ export default function Order() {
             />
             <input
               type="tel"
-              className="bg-slate-300 basis-1/2"
+              className="p-2 outline outline-1 basis-1/2"
               placeholder="Phone Number"
               value={phoneNumber}
               name="phone"
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
-          <span>Preferred method of communication:</span>
+        </div>
+        <div className="mb-2">
+          <span className="me-2">Preferred method of communication: </span>
           <input
             type="radio"
             id="email"
@@ -61,7 +65,9 @@ export default function Order() {
             checked={prefContact === "Email"}
             onChange={(e) => setPrefContact(e.target.value)}
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="me-2">
+            Email
+          </label>
           <input
             type="radio"
             id="phone"
@@ -72,7 +78,7 @@ export default function Order() {
           />
           <label htmlFor="phone">Text</label>
         </div>
-        <button className="w-full bg-red-300">Add Product</button>
+        <button className="w-full h-12 outline outline-1">Add Product</button>
       </form>
     </section>
   );

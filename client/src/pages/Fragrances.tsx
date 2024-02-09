@@ -11,7 +11,7 @@ export default function Fragrances() {
   }, []);
 
   return (
-    <section className="w-10/12 m-auto">
+    <section className="w-8/12 m-auto">
       <div className="w-full py-3 border-b border-black">
         <span className="text-2xl font-playfair">Fragrances</span>
       </div>
