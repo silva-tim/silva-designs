@@ -8,6 +8,8 @@ export default function Order() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
 
+  function handleButtonClick() {}
+
   return (
     <section className="w-8/12 m-auto">
       <div className="w-full py-3 mb-5 border-b border-black">
@@ -80,7 +82,13 @@ export default function Order() {
           <label htmlFor="phone">Text</label>
         </div>
         <ProductLine />
-        <button className="w-full h-12 outline outline-1">Add Product</button>
+        <button
+          type="button"
+          onClick={handleButtonClick}
+          className="w-full h-12 outline outline-1"
+        >
+          Add Product
+        </button>
       </form>
     </section>
   );
