@@ -12,10 +12,10 @@ export default function Favorites() {
 
   return (
     <div className="flex flex-wrap justify-center">
-      <span className="mb-5 text-2xl tracking-wider text-center font-playfair basis-full">
+      <span className="mb-5 text-2xl tracking-widest text-center font-playfair basis-full">
         House Favorite Fragrances
       </span>
-      <div className="flex">
+      <div className="flex pt-5 border-t border-black">
         {favorites?.map((favorite) => (
           <ProductCard
             prodAlt={favorite.alt}

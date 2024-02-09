@@ -16,12 +16,12 @@ export default function ProductCard({
   return (
     <Link
       to={`/fragrances/${prodId}`}
-      className="flex flex-wrap justify-center transition basis-1/5 hover:scale-105"
+      className="flex flex-wrap justify-center pb-5 transition basis-1/5 hover:scale-105"
     >
       <div className="h-5/6 basis-full">
         <img src={prodImg} alt={prodAlt} className="h-full m-auto" />
       </div>
-      <span>{prodName}</span>
+      <span className="tracking-wider font-playfair">{prodName}</span>
     </Link>
   );
 }
