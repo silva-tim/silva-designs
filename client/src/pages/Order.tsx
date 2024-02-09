@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ProductLine from "../components/ProductLine";
 
 export default function Order() {
   const [firstName, setFirstName] = useState<string>("");
@@ -78,6 +79,7 @@ export default function Order() {
           />
           <label htmlFor="phone">Text</label>
         </div>
+        <ProductLine />
         <button className="w-full h-12 outline outline-1">Add Product</button>
       </form>
     </section>

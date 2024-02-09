@@ -9,13 +9,13 @@ export default function Footer() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">Fragrances</Link>
+            <Link to="/fragrances">Fragrances</Link>
           </li>
           <li>
-            <Link to="/">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/">Order</Link>
+            <Link to="/order">Order</Link>
           </li>
         </ul>
       </div>
