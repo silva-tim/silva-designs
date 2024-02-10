@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductLine from "../components/ProductLine";
+// import { Candle } from "../types/Candle";
 
 export default function Order() {
   const [firstName, setFirstName] = useState<string>("");
@@ -7,8 +8,9 @@ export default function Order() {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
+  // const [products, setProducts] = useState();
 
-  function handleButtonClick() {}
+  function handleAddProduct() {}
 
   return (
     <section className="w-8/12 m-auto">
@@ -84,8 +86,8 @@ export default function Order() {
         <ProductLine />
         <button
           type="button"
-          onClick={handleButtonClick}
-          className="w-full h-12 outline outline-1"
+          onClick={handleAddProduct}
+          className="w-full h-12 border border-black"
         >
           Add Product
         </button>
