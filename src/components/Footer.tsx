@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="flex text-white bg-zinc-900 h-60">
-      <div className="flex flex-wrap justify-center basis-1/3">
+    <footer className="flex h-60 items-center bg-zinc-900 text-white">
+      <div className="flex basis-1/3 flex-wrap justify-center">
         <ul className="space-y-2 text-center">
+          <li>
+            <span className="text-lg underline underline-offset-4">
+              Useful Links
+            </span>
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -19,8 +24,21 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="flex items-center justify-center basis-1/3">
-        <img src="/android-chrome-512x512.png" alt="" className="h-3/5" />
+      <div className="flex basis-1/3 items-center justify-center">
+        <img
+          src="/android-chrome-512x512.png"
+          alt="Silva Designs Logo"
+          className="h-40"
+        />
+      </div>
+      <div className="flex basis-1/3 flex-wrap justify-center">
+        <ul className="space-y-2 text-center">
+          <li>
+            <span className="text-lg underline underline-offset-4">
+              Learn More
+            </span>
+          </li>
+        </ul>
       </div>
     </footer>
   );
