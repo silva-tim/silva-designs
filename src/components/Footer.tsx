@@ -38,6 +38,9 @@ export default function Footer() {
               Learn More
             </span>
           </li>
+          <li>
+            <Link to="/pricing">Pricing</Link>
+          </li>
         </ul>
       </div>
     </footer>
