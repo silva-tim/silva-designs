@@ -8,16 +8,18 @@ export default function Order() {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
-  // const [products, setProducts] = useState();
+  const [products, setProducts] = useState([<ProductLine />]);
 
-  function handleAddProduct() {}
+  function handleAddProduct() {
+    setProducts([...products, <ProductLine />]);
+  }
 
   return (
     <section className="w-8/12 m-auto">
       <div className="w-full py-3 mb-5 border-b border-black">
         <span className="text-2xl font-playfair">Order</span>
       </div>
-      <form className="px-2">
+      <form className="px-2" id="order">
         <div className="flex flex-wrap mb-2">
           <span className="basis-full">Name</span>
           <div className="flex gap-5 basis-full">
@@ -83,7 +85,9 @@ export default function Order() {
           />
           <label htmlFor="phone">Text</label>
         </div>
-        <ProductLine />
+        {products.map(() => (
+          <ProductLine />
+        ))}
         <button
           type="button"
           onClick={handleAddProduct}
