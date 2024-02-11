@@ -15,18 +15,18 @@ export default function Order() {
   }
 
   return (
-    <section className="w-8/12 m-auto">
-      <div className="w-full py-3 mb-5 border-b border-black">
-        <span className="text-2xl font-playfair">Order</span>
+    <section className="m-auto w-8/12">
+      <div className="mb-5 w-full border-b border-black py-3">
+        <span className="font-playfair text-2xl">Order</span>
       </div>
       <form className="px-2" id="order">
-        <div className="flex flex-wrap mb-2">
+        <div className="mb-2 flex flex-wrap">
           <span className="basis-full">Name</span>
-          <div className="flex gap-5 basis-full">
+          <div className="flex basis-full gap-5">
             <input
               type="text"
               name="firstName"
-              className="p-2 outline outline-1 basis-1/2"
+              className="basis-1/2 p-2 outline outline-1"
               placeholder="First"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -34,19 +34,19 @@ export default function Order() {
             <input
               type="text"
               name="lastName"
-              className="p-2 outline outline-1 basis-1/2"
+              className="basis-1/2 p-2 outline outline-1"
               placeholder="Last"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
         </div>
-        <div className="flex flex-wrap mb-2">
+        <div className="mb-2 flex flex-wrap">
           <span className="basis-full">Contact Information</span>
-          <div className="flex gap-5 basis-full">
+          <div className="flex basis-full gap-5">
             <input
               type="email"
-              className="p-2 basis-1/2 outline outline-1"
+              className="basis-1/2 p-2 outline outline-1"
               placeholder="Email"
               value={email}
               name="email"
@@ -54,7 +54,7 @@ export default function Order() {
             />
             <input
               type="tel"
-              className="p-2 outline outline-1 basis-1/2"
+              className="basis-1/2 p-2 outline outline-1"
               placeholder="Phone Number"
               value={phoneNumber}
               name="phone"
@@ -91,7 +91,7 @@ export default function Order() {
         <button
           type="button"
           onClick={handleAddProduct}
-          className="w-full h-12 border border-black"
+          className="h-12 w-full border border-black"
         >
           Add Product
         </button>
