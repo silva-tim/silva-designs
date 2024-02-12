@@ -1,25 +1,29 @@
-import { useEffect, useState } from "react";
-import { getCandles } from "../lib/Api";
+import { Dispatch, SetStateAction } from "react";
 import { Candle } from "../types/Candle";
 
-export default function ProductLine() {
-  const [candles, setCandles] = useState<Candle[]>();
-  const [product, setProduct] = useState<string>();
-  const [quantity, setQuantity] = useState(1);
+type props = {
+  candles: Candle[] | undefined;
+  key: number;
+  product: Candle;
+  handleChange: Dispatch<SetStateAction<Candle[]>>;
+};
 
-  useEffect(() => {
-    setCandles(getCandles());
-  }, []);
-
+export default function ProductLine({ candles, product, handleChange }: props) {
   return (
     <div className="flex h-20 border border-black">
-      <div className="flex basis-1/3">
+      <div className="flex basis-1/3 items-center justify-center">
         <select
           name=""
           id=""
           required
-          onChange={(e) => setProduct(e.target.value)}
-          value={product}
+          value={product.name}
+          onChange={(e) =>
+            handleChange((prev) => [
+              ...prev,
+              { ...product, name: e.target.value },
+            ])
+          }
+          className="h-1/2 w-11/12 rounded border border-black"
         >
           <option value="" disabled selected>
             Please select a fragrance
@@ -31,25 +35,8 @@ export default function ProductLine() {
           ))}
         </select>
       </div>
-      <div className="flex basis-1/3">
-        <button
-          disabled={quantity <= 1 && true}
-          type="button"
-          className="bg-red-400 basis-1/6"
-          onClick={() => setQuantity(quantity - 1)}
-        >
-          -
-        </button>
-        <div className="flex items-center justify-center basis-1/4">
-          <span>{quantity}</span>
-        </div>
-        <button
-          type="button"
-          className="bg-red-400 basis-1/6"
-          onClick={() => setQuantity(quantity + 1)}
-        >
-          +
-        </button>
+      <div className="flex basis-1/3 justify-center bg-red-300">
+        <p>{product.desc}</p>
       </div>
       <div className="flex basis-1/3">
         <input type="checkbox" name="" id="" />
