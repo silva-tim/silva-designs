@@ -6,6 +6,7 @@ import { useOrder } from "../lib/OrderContext";
 type props = {
   item: Product;
 };
+
 export default function ProductLine({ item }: props) {
   const { onChangeFragrance } = useOrder();
   const [candles] = useState(getCandles());

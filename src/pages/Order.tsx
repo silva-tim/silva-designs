@@ -16,7 +16,6 @@ export default function Order() {
     onAddProduct,
   } = useOrder();
 
-  console.log(products);
   return (
     <section className="m-auto w-8/12">
       <div className="w-full border-b border-black py-3">
