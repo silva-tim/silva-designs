@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Candle } from "../types/Candle";
+import { getCandles } from "../lib/Api";
 import ProductLine from "../components/ProductLine";
-// import { Candle } from "../types/Candle";
 
 export default function Order() {
   const [firstName, setFirstName] = useState<string>("");
@@ -8,10 +9,36 @@ export default function Order() {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
-  const [products, setProducts] = useState([<ProductLine />]);
+  const [candles, setCandles] = useState<Candle[]>();
+  const [products, setProducts] = useState<Candle[]>([
+    {
+      name: "test",
+      id: "0",
+      price: 1,
+      image: "",
+      alt: "",
+      desc: "hi",
+      favorite: false,
+    },
+  ]);
+
+  useEffect(() => {
+    setCandles(getCandles());
+  }, []);
 
   function handleAddProduct() {
-    setProducts([...products, <ProductLine />]);
+    setProducts([
+      ...products,
+      {
+        name: "test",
+        id: "0",
+        price: 1,
+        image: "",
+        alt: "",
+        desc: "hi",
+        favorite: false,
+      },
+    ]);
   }
 
   return (
@@ -85,8 +112,13 @@ export default function Order() {
           />
           <label htmlFor="phone">Text</label>
         </div>
-        {products.map(() => (
-          <ProductLine />
+        {products.map((product) => (
+          <ProductLine
+            key={Number(product.id)}
+            candles={candles}
+            product={product}
+            handleChange={setProducts}
+          />
         ))}
         <button
           type="button"
