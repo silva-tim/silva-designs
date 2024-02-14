@@ -15,6 +15,7 @@ type OrderContextValues = {
   onSetPref: (pref: string) => void;
   onAddProduct: () => void;
   onChangeFragrance: (id: number, newFragrance: string) => void;
+  onChangeQuantity: (id: number, quantity: number) => void;
 };
 
 const OrderContext = createContext<OrderContextValues>({
@@ -31,6 +32,7 @@ const OrderContext = createContext<OrderContextValues>({
   onSetPref: () => undefined,
   onAddProduct: () => undefined,
   onChangeFragrance: () => undefined,
+  onChangeQuantity: () => undefined,
 });
 
 type props = {
@@ -44,7 +46,7 @@ export default function OrderContextProvider({ children }: props) {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
   const [products, setProducts] = useState<Product[]>([
-    { fragrance: "", id: 0, quantity: 1 },
+    { fragrance: "Blooming Bliss", id: 0, quantity: 1 },
   ]);
 
   function onSetFirst(first: string) {
@@ -71,7 +73,7 @@ export default function OrderContextProvider({ children }: props) {
     setProducts([
       ...products,
       {
-        fragrance: "",
+        fragrance: "Blooming Bliss",
         id: products.length,
         quantity: 1,
       },
@@ -82,6 +84,17 @@ export default function OrderContextProvider({ children }: props) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
         return { ...product, fragrance: newFragrance };
+      } else {
+        return product;
+      }
+    });
+    setProducts(updatedProducts);
+  }
+
+  function onChangeQuantity(id: number, quantity: number) {
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, quantity: quantity };
       } else {
         return product;
       }
@@ -105,6 +118,7 @@ export default function OrderContextProvider({ children }: props) {
         onSetPref,
         onAddProduct,
         onChangeFragrance,
+        onChangeQuantity,
       }}
     >
       {children}
