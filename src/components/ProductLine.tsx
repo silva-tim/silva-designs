@@ -10,7 +10,7 @@ type props = {
 
 export default function ProductLine({ candles, product, handleChange }: props) {
   return (
-    <div className="flex h-20 border border-black">
+    <div className="my-1 flex h-20 border border-black">
       <div className="flex basis-1/3 items-center justify-center">
         <select
           name=""
