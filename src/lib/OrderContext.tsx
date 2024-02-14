@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { Product } from "../types/Product";
 
 type OrderContextValues = {
   firstName: string;
@@ -6,11 +7,14 @@ type OrderContextValues = {
   email: string;
   phoneNumber: string;
   prefContact: string;
+  products: Product[];
   onSetFirst: (first: string) => void;
   onSetLast: (last: string) => void;
   onSetEmail: (email: string) => void;
   onSetPhone: (phone: string) => void;
   onSetPref: (pref: string) => void;
+  onAddProduct: () => void;
+  onChangeFragrance: (id: number, newFragrance: string) => void;
 };
 
 const OrderContext = createContext<OrderContextValues>({
@@ -19,11 +23,14 @@ const OrderContext = createContext<OrderContextValues>({
   email: "",
   phoneNumber: "",
   prefContact: "",
+  products: [],
   onSetFirst: () => undefined,
   onSetLast: () => undefined,
   onSetEmail: () => undefined,
   onSetPhone: () => undefined,
   onSetPref: () => undefined,
+  onAddProduct: () => undefined,
+  onChangeFragrance: () => undefined,
 });
 
 type props = {
@@ -36,6 +43,9 @@ export default function OrderContextProvider({ children }: props) {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
+  const [products, setProducts] = useState<Product[]>([
+    { fragrance: "", id: 0, quantity: 1 },
+  ]);
 
   function onSetFirst(first: string) {
     setFirstName(first);
@@ -57,6 +67,28 @@ export default function OrderContextProvider({ children }: props) {
     setPrefContact(pref);
   }
 
+  function onAddProduct() {
+    setProducts([
+      ...products,
+      {
+        fragrance: "",
+        id: products.length,
+        quantity: 1,
+      },
+    ]);
+  }
+
+  function onChangeFragrance(id: number, newFragrance: string) {
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, fragrance: newFragrance };
+      } else {
+        return product;
+      }
+    });
+    setProducts(updatedProducts);
+  }
+
   return (
     <OrderContext.Provider
       value={{
@@ -65,11 +97,14 @@ export default function OrderContextProvider({ children }: props) {
         email,
         phoneNumber,
         prefContact,
+        products,
         onSetFirst,
         onSetLast,
         onSetEmail,
         onSetPhone,
         onSetPref,
+        onAddProduct,
+        onChangeFragrance,
       }}
     >
       {children}

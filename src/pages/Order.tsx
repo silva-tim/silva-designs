@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import ProductLine from "../components/ProductLine";
 import { useOrder } from "../lib/OrderContext";
 
 export default function Order() {
@@ -10,8 +12,11 @@ export default function Order() {
     onSetEmail,
     phoneNumber,
     onSetPhone,
+    products,
+    onAddProduct,
   } = useOrder();
 
+  console.log(products);
   return (
     <section className="m-auto w-8/12">
       <div className="w-full border-b border-black py-3">
@@ -52,6 +57,16 @@ export default function Order() {
           <input type="radio" name="pref" />
           <input type="radio" name="pref" />
         </div>
+        <div>
+          {products.map((product) => (
+            <Fragment key={product.id}>
+              <ProductLine item={product} />
+            </Fragment>
+          ))}
+        </div>
+        <button type="button" onClick={() => onAddProduct()}>
+          Add Product
+        </button>
       </form>
     </section>
   );
