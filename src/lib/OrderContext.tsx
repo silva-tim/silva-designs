@@ -16,6 +16,7 @@ type OrderContextValues = {
   onSetPref: (pref: string) => void;
   onAddProduct: () => void;
   onChangeFragrance: (id: string, newFragrance: string) => void;
+  onGift: (id: string) => void;
   onChangeQuantity: (id: string, quantity: number) => void;
   onRemoveProduct: (id: string) => void;
 };
@@ -34,6 +35,7 @@ const OrderContext = createContext<OrderContextValues>({
   onSetPref: () => undefined,
   onAddProduct: () => undefined,
   onChangeFragrance: () => undefined,
+  onGift: () => undefined,
   onChangeQuantity: () => undefined,
   onRemoveProduct: () => undefined,
 });
@@ -49,7 +51,7 @@ export default function OrderContextProvider({ children }: props) {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
   const [products, setProducts] = useState<Product[]>([
-    { fragrance: "Blooming Bliss", id: uuidv4(), quantity: 1 },
+    { fragrance: "Blooming Bliss", id: uuidv4(), quantity: 1, gift: false },
   ]);
 
   function onSetFirst(first: string) {
@@ -79,6 +81,7 @@ export default function OrderContextProvider({ children }: props) {
         fragrance: "Blooming Bliss",
         id: uuidv4(),
         quantity: 1,
+        gift: false,
       },
     ]);
   }
@@ -87,6 +90,17 @@ export default function OrderContextProvider({ children }: props) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
         return { ...product, fragrance: newFragrance };
+      } else {
+        return product;
+      }
+    });
+    setProducts(updatedProducts);
+  }
+
+  function onGift(id: string) {
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, gift: !product.gift };
       } else {
         return product;
       }
@@ -126,6 +140,7 @@ export default function OrderContextProvider({ children }: props) {
         onSetPref,
         onAddProduct,
         onChangeFragrance,
+        onGift,
         onChangeQuantity,
         onRemoveProduct,
       }}
