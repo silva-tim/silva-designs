@@ -16,6 +16,7 @@ type OrderContextValues = {
   onAddProduct: () => void;
   onChangeFragrance: (id: number, newFragrance: string) => void;
   onChangeQuantity: (id: number, quantity: number) => void;
+  onRemoveProduct: (id: number) => void;
 };
 
 const OrderContext = createContext<OrderContextValues>({
@@ -33,6 +34,7 @@ const OrderContext = createContext<OrderContextValues>({
   onAddProduct: () => undefined,
   onChangeFragrance: () => undefined,
   onChangeQuantity: () => undefined,
+  onRemoveProduct: () => undefined,
 });
 
 type props = {
@@ -91,6 +93,11 @@ export default function OrderContextProvider({ children }: props) {
     setProducts(updatedProducts);
   }
 
+  function onRemoveProduct(id: number) {
+    const updatedProducts = products.filter((product) => product.id !== id);
+    setProducts(updatedProducts);
+  }
+
   function onChangeQuantity(id: number, quantity: number) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
@@ -119,6 +126,7 @@ export default function OrderContextProvider({ children }: props) {
         onAddProduct,
         onChangeFragrance,
         onChangeQuantity,
+        onRemoveProduct,
       }}
     >
       {children}
