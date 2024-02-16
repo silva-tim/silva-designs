@@ -64,7 +64,6 @@ export default function Order() {
           <span className="basis-full py-2 text-lg">
             Preferred method of contact?
           </span>
-
           <input type="radio" name="pref" />
           <input type="radio" name="pref" />
         </div>
