@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import ProductLine from "../components/ProductLine";
 import { useOrder } from "../lib/OrderContext";
 
@@ -60,12 +59,12 @@ export default function Order() {
             />
           </div>
         </div>
-        <div>
+        <div className="flex flex-wrap">
           <span className="basis-full py-2 text-lg">Products</span>
           {products.map((product) => (
-            <Fragment key={product.id}>
+            <div key={product.id} className="basis-full">
               <ProductLine item={product} />
-            </Fragment>
+            </div>
           ))}
         </div>
         <button
