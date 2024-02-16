@@ -60,14 +60,8 @@ export default function Order() {
             />
           </div>
         </div>
-        <div className="flex flex-wrap">
-          <span className="basis-full py-2 text-lg">
-            Preferred method of contact?
-          </span>
-          <input type="radio" name="pref" />
-          <input type="radio" name="pref" />
-        </div>
         <div>
+          <span className="basis-full py-2 text-lg">Products</span>
           {products.map((product) => (
             <Fragment key={product.id}>
               <ProductLine item={product} />
