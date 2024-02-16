@@ -12,11 +12,12 @@ export default function ProductLine({ item }: props) {
   const [candles] = useState(getCandles());
 
   return (
-    <div>
+    <div className="bg-red-200">
       <select
         name="fragrance"
         value={item.fragrance}
         onChange={(e) => onChangeFragrance(item.id, e.target.value)}
+        className=""
       >
         {candles.map((candle) => (
           <option key={candle.id} value={candle.name}>

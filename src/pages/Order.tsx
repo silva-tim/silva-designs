@@ -23,36 +23,48 @@ export default function Order() {
       </div>
       <form>
         <div className="flex flex-wrap">
-          <span className="basis-full">Name</span>
-          <input
-            type="text"
-            name="first"
-            value={firstName}
-            onChange={(e) => onSetFirst(e.target.value)}
-          />
-          <input
-            type="text"
-            name="last"
-            value={lastName}
-            onChange={(e) => onSetLast(e.target.value)}
-          />
+          <span className="basis-full py-2 text-lg">Name</span>
+          <div className="flex basis-full gap-5">
+            <input
+              type="text"
+              name="first"
+              value={firstName}
+              onChange={(e) => onSetFirst(e.target.value)}
+              className="basis-1/2 border border-black px-3 py-2"
+            />
+            <input
+              type="text"
+              name="last"
+              value={lastName}
+              onChange={(e) => onSetLast(e.target.value)}
+              className="basis-1/2 border border-black px-3 py-2"
+            />
+          </div>
         </div>
         <div className="flex flex-wrap">
-          <span className="basis-full">Contact</span>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => onSetEmail(e.target.value)}
-          />
-          <input
-            type="tel"
-            name="phone"
-            value={phoneNumber}
-            onChange={(e) => onSetPhone(e.target.value)}
-          />
+          <span className="basis-full py-2 text-lg">Contact</span>
+          <div className="flex basis-full gap-5">
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => onSetEmail(e.target.value)}
+              className="basis-1/2 border border-black px-3 py-2"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={phoneNumber}
+              onChange={(e) => onSetPhone(e.target.value)}
+              className="basis-1/2 border border-black px-3 py-2"
+            />
+          </div>
         </div>
-        <div>
+        <div className="flex flex-wrap">
+          <span className="basis-full py-2 text-lg">
+            Preferred method of contact?
+          </span>
+
           <input type="radio" name="pref" />
           <input type="radio" name="pref" />
         </div>
@@ -63,7 +75,11 @@ export default function Order() {
             </Fragment>
           ))}
         </div>
-        <button type="button" onClick={() => onAddProduct()}>
+        <button
+          type="button"
+          onClick={() => onAddProduct()}
+          className="border border-black"
+        >
           Add Product
         </button>
       </form>
