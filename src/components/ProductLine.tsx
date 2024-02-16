@@ -12,7 +12,7 @@ export default function ProductLine({ item }: props) {
   const [candles] = useState(getCandles());
 
   return (
-    <div className="flex bg-red-200">
+    <div className="flex border">
       <div className="flex basis-1/3 py-2">
         <select
           name="fragrance"
@@ -27,8 +27,13 @@ export default function ProductLine({ item }: props) {
           ))}
         </select>
       </div>
-      <div className="flex basis-1/3 py-2">
-        <button type="button" onClick={() => onRemoveProduct(item.id)}>
+      <div className="flex basis-1/3 justify-end py-2"></div>
+      <div className="flex basis-1/3 justify-end px-2 py-2">
+        <button
+          type="button"
+          onClick={() => onRemoveProduct(item.id)}
+          className=" rounded bg-red-300 px-4"
+        >
           Remove
         </button>
       </div>

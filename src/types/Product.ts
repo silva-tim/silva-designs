@@ -1,5 +1,5 @@
 export type Product = {
   fragrance: string;
-  id: number;
+  id: string;
   quantity: number;
 };

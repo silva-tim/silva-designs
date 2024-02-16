@@ -16,8 +16,6 @@ export default function Order() {
     onAddProduct,
   } = useOrder();
 
-  console.log(products);
-
   return (
     <section className="m-auto w-8/12">
       <div className="w-full border-b border-black py-3">
@@ -80,7 +78,7 @@ export default function Order() {
         <button
           type="button"
           onClick={() => onAddProduct()}
-          className="border border-black"
+          className="h-16 w-full border border-black"
         >
           Add Product
         </button>

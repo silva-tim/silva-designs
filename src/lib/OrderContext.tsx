@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Product } from "../types/Product";
+import { v4 as uuidv4 } from "uuid";
 
 type OrderContextValues = {
   firstName: string;
@@ -14,9 +15,9 @@ type OrderContextValues = {
   onSetPhone: (phone: string) => void;
   onSetPref: (pref: string) => void;
   onAddProduct: () => void;
-  onChangeFragrance: (id: number, newFragrance: string) => void;
-  onChangeQuantity: (id: number, quantity: number) => void;
-  onRemoveProduct: (id: number) => void;
+  onChangeFragrance: (id: string, newFragrance: string) => void;
+  onChangeQuantity: (id: string, quantity: number) => void;
+  onRemoveProduct: (id: string) => void;
 };
 
 const OrderContext = createContext<OrderContextValues>({
@@ -48,7 +49,7 @@ export default function OrderContextProvider({ children }: props) {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
   const [products, setProducts] = useState<Product[]>([
-    { fragrance: "Blooming Bliss", id: 0, quantity: 1 },
+    { fragrance: "Blooming Bliss", id: uuidv4(), quantity: 1 },
   ]);
 
   function onSetFirst(first: string) {
@@ -76,13 +77,13 @@ export default function OrderContextProvider({ children }: props) {
       ...products,
       {
         fragrance: "Blooming Bliss",
-        id: products.length,
+        id: uuidv4(),
         quantity: 1,
       },
     ]);
   }
 
-  function onChangeFragrance(id: number, newFragrance: string) {
+  function onChangeFragrance(id: string, newFragrance: string) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
         return { ...product, fragrance: newFragrance };
@@ -93,12 +94,12 @@ export default function OrderContextProvider({ children }: props) {
     setProducts(updatedProducts);
   }
 
-  function onRemoveProduct(id: number) {
+  function onRemoveProduct(id: string) {
     const updatedProducts = products.filter((product) => product.id !== id);
     setProducts(updatedProducts);
   }
 
-  function onChangeQuantity(id: number, quantity: number) {
+  function onChangeQuantity(id: string, quantity: number) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
         return { ...product, quantity: quantity };
