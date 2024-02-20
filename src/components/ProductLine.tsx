@@ -28,11 +28,11 @@ export default function ProductLine({ item }: props) {
         </select>
       </div>
       <div className="flex basis-1/3 justify-end py-2">
-        <label htmlFor="gift">Make this a gift?</label>
+        <label htmlFor={`${item.id}`}>Make this a gift?</label>
         <input
           type="checkbox"
           name="gift"
-          id="gift"
+          id={`${item.id}`}
           onChange={() => onGift(item.id)}
           checked={item.gift}
         />
