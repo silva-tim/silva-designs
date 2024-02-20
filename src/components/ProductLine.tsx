@@ -8,11 +8,12 @@ type props = {
 };
 
 export default function ProductLine({ item }: props) {
-  const { onChangeFragrance, onRemoveProduct, onGift } = useOrder();
+  const { onChangeFragrance, onRemoveProduct, onGift, onChangeQuantity } =
+    useOrder();
   const [candles] = useState(getCandles());
 
   return (
-    <div className="flex border border-black">
+    <div className="flex items-center border border-black">
       <div className="flex basis-1/3 p-2">
         <select
           name="fragrance"
@@ -26,6 +27,25 @@ export default function ProductLine({ item }: props) {
             </option>
           ))}
         </select>
+      </div>
+      <div className="flex h-10 rounded-sm border border-black bg-slate-300">
+        <button
+          onClick={() => onChangeQuantity(item.id, item.quantity - 1)}
+          type="button"
+          className="w-10 border-r border-black"
+        >
+          -
+        </button>
+        <span className="flex w-10 items-center justify-center">
+          {item.quantity}
+        </span>
+        <button
+          type="button"
+          onClick={() => onChangeQuantity(item.id, item.quantity + 1)}
+          className="w-10 border-l border-black"
+        >
+          +
+        </button>
       </div>
       <div className="flex basis-1/3 justify-end py-2">
         <label htmlFor={`${item.id}`}>Make this a gift?</label>

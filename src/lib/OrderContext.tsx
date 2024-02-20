@@ -116,7 +116,11 @@ export default function OrderContextProvider({ children }: props) {
   function onChangeQuantity(id: string, quantity: number) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
-        return { ...product, quantity: quantity };
+        if (quantity < 1) {
+          return product;
+        } else {
+          return { ...product, quantity: quantity };
+        }
       } else {
         return product;
       }
