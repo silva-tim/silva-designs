@@ -2,19 +2,19 @@ import { useState } from "react";
 import { getCandles } from "../lib/Api";
 import { Product } from "../types/Product";
 import { useOrder } from "../lib/OrderContext";
+import QuantityChanger from "./QuantityChanger";
 
 type props = {
   item: Product;
 };
 
 export default function ProductLine({ item }: props) {
-  const { onChangeFragrance, onRemoveProduct, onGift, onChangeQuantity } =
-    useOrder();
+  const { onChangeFragrance, onRemoveProduct, onGift } = useOrder();
   const [candles] = useState(getCandles());
 
   return (
     <div className="flex items-center border border-black">
-      <div className="flex basis-1/3 p-2">
+      <div className="flex basis-5/12 p-2">
         <select
           name="fragrance"
           value={item.fragrance}
@@ -28,36 +28,23 @@ export default function ProductLine({ item }: props) {
           ))}
         </select>
       </div>
-      <div className="flex h-10 rounded-sm border border-black bg-slate-300">
-        <button
-          onClick={() => onChangeQuantity(item.id, item.quantity - 1)}
-          type="button"
-          className="w-10 border-r border-black"
-        >
-          -
-        </button>
-        <span className="flex w-10 items-center justify-center">
-          {item.quantity}
-        </span>
-        <button
-          type="button"
-          onClick={() => onChangeQuantity(item.id, item.quantity + 1)}
-          className="w-10 border-l border-black"
-        >
-          +
-        </button>
+      <div className="flex basis-2/12 justify-center">
+        <QuantityChanger item={item} />
       </div>
-      <div className="flex basis-1/3 justify-end py-2">
-        <label htmlFor={`${item.id}`}>Make this a gift?</label>
-        <input
-          type="checkbox"
-          name="gift"
-          id={`${item.id}`}
-          onChange={() => onGift(item.id)}
-          checked={item.gift}
-        />
+      <div className="flex basis-3/12 justify-around">
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="gift"
+            id={`${item.id}`}
+            onChange={() => onGift(item.id)}
+            checked={item.gift}
+          />
+          <label htmlFor={`${item.id}`}>Make this a gift?</label>
+        </div>
+        <span>$50</span>
       </div>
-      <div className="flex basis-1/3 justify-end px-2 py-2">
+      <div className="flex basis-2/12 justify-center p-2">
         <button
           type="button"
           onClick={() => onRemoveProduct(item.id)}
