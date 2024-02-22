@@ -51,7 +51,13 @@ export default function OrderContextProvider({ children }: props) {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [prefContact, setPrefContact] = useState<string>("Email");
   const [products, setProducts] = useState<Product[]>([
-    { fragrance: "Blooming Bliss", id: uuidv4(), quantity: 1, gift: false },
+    {
+      fragrance: "Blooming Bliss",
+      id: uuidv4(),
+      quantity: 1,
+      gift: false,
+      price: 25,
+    },
   ]);
 
   function onSetFirst(first: string) {
@@ -82,6 +88,7 @@ export default function OrderContextProvider({ children }: props) {
         id: uuidv4(),
         quantity: 1,
         gift: false,
+        price: 25,
       },
     ]);
   }
@@ -100,7 +107,11 @@ export default function OrderContextProvider({ children }: props) {
   function onGift(id: string) {
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
-        return { ...product, gift: !product.gift };
+        return {
+          ...product,
+          gift: !product.gift,
+          price: product.gift ? product.price - 5 : product.price + 5,
+        };
       } else {
         return product;
       }

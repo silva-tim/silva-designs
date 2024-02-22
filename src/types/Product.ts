@@ -3,4 +3,5 @@ export type Product = {
   id: string;
   quantity: number;
   gift: boolean;
+  price: number;
 };

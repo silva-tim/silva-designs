@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCandles } from "../lib/Api";
 import { Product } from "../types/Product";
 import { useOrder } from "../lib/OrderContext";
@@ -12,8 +12,10 @@ export default function ProductLine({ item }: props) {
   const { onChangeFragrance, onRemoveProduct, onGift } = useOrder();
   const [candles] = useState(getCandles());
 
+  useEffect(() => {});
+
   return (
-    <div className="flex items-center border border-black">
+    <div className="flex items-center">
       <div className="flex basis-5/12 p-2">
         <select
           name="fragrance"
@@ -42,7 +44,10 @@ export default function ProductLine({ item }: props) {
           />
           <label htmlFor={`${item.id}`}>Make this a gift?</label>
         </div>
-        <span>$50</span>
+        <span>
+          <span>$</span>
+          {item.price}
+        </span>
       </div>
       <div className="flex basis-2/12 justify-center p-2">
         <button

@@ -30,6 +30,7 @@ export default function Order() {
               value={firstName}
               onChange={(e) => onSetFirst(e.target.value)}
               className="basis-1/2 border border-black px-3 py-2"
+              placeholder="First"
             />
             <input
               type="text"
@@ -37,6 +38,7 @@ export default function Order() {
               value={lastName}
               onChange={(e) => onSetLast(e.target.value)}
               className="basis-1/2 border border-black px-3 py-2"
+              placeholder="Last"
             />
           </div>
         </div>
@@ -49,6 +51,7 @@ export default function Order() {
               value={email}
               onChange={(e) => onSetEmail(e.target.value)}
               className="basis-1/2 border border-black px-3 py-2"
+              placeholder="Email"
             />
             <input
               type="tel"
@@ -56,13 +59,17 @@ export default function Order() {
               value={phoneNumber}
               onChange={(e) => onSetPhone(e.target.value)}
               className="basis-1/2 border border-black px-3 py-2"
+              placeholder="Phone Number"
             />
           </div>
         </div>
         <div className="flex flex-wrap">
           <span className="basis-full py-2 text-lg">Products</span>
           {products.map((product) => (
-            <div key={product.id} className="basis-full">
+            <div
+              key={product.id}
+              className="basis-full border-x border-t border-black"
+            >
               <ProductLine item={product} />
             </div>
           ))}
