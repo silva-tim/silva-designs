@@ -14,17 +14,9 @@ export default function ProductDetails() {
   }, [prodId]);
 
   return (
-    <div className="flex w-10/12 m-auto bg-slate-300">
+    <div className="m-auto flex w-10/12">
       <div className="basis-2/5">
         <img src={candle?.image} alt={candle?.alt} />
-      </div>
-      <div className="flex flex-col basis-3/5">
-        <div className="flex items-center justify-center h-24 border-b border-black">
-          <span className="text-2xl">{candle?.name}</span>
-        </div>
-        <div className="flex">
-          <p>{candle?.desc}</p>
-        </div>
       </div>
     </div>
   );

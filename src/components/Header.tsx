@@ -5,12 +5,12 @@ export default function Header() {
   const path = location.pathname;
 
   return (
-    <div className="flex items-center h-48">
-      <div className="flex flex-wrap justify-center gap-5 basis-full">
-        <Link to="/" className="text-4xl text-center font-raleway basis-full">
+    <div className="flex h-48 items-center">
+      <div className="flex basis-full flex-wrap justify-center gap-5">
+        <Link to="/" className="basis-full text-center font-raleway text-4xl">
           S I L V A &nbsp; D E S I G N S
         </Link>
-        <nav className="flex gap-5 tracking-wider font-playfair underline-offset-[12px]">
+        <nav className="flex gap-5 font-playfair tracking-wider underline-offset-[12px]">
           <Link
             to="/"
             className={`hover:underline ${path === "/" && `underline`}`}

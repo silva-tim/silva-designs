@@ -5,6 +5,7 @@ import Order from "./pages/Order";
 import Fragrances from "./pages/Fragrances";
 import About from "./pages/About";
 import ProductDetails from "./pages/ProductDetails";
+import Pricing from "./pages/Pricing";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/fragrances" element={<Fragrances />} />
         <Route path="/fragrances/:prodId" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />
+        <Route path="/pricing" element={<Pricing />} />
       </Route>
     </Routes>
   );

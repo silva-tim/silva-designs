@@ -7,13 +7,3 @@ export type Candle = {
   desc: string;
   favorite: boolean;
 };
-
-// {
-//   name: "test",
-//   id: "0",
-//   price: 1,
-//   image: "",
-//   alt: "",
-//   desc: "hi",
-//   favorite: false
-// }
