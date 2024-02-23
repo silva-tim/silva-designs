@@ -110,7 +110,7 @@ export default function OrderContextProvider({ children }: props) {
         return {
           ...product,
           gift: !product.gift,
-          price: product.gift ? product.price - 5 : product.price + 5,
+          price: product.gift ? product.quantity * 25 : product.quantity * 30,
         };
       } else {
         return product;
@@ -130,7 +130,11 @@ export default function OrderContextProvider({ children }: props) {
         if (quantity < 1) {
           return product;
         } else {
-          return { ...product, quantity: quantity };
+          return {
+            ...product,
+            quantity: quantity,
+            price: product.gift ? quantity * 30 : quantity * 25,
+          };
         }
       } else {
         return product;
