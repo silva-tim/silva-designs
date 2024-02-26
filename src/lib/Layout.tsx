@@ -9,7 +9,9 @@ export default function Layout() {
       <div className="min-h-screen">
         <Outlet />
       </div>
-      <Footer />
+      <div className="flex flex-grow">
+        <Footer />
+      </div>
     </>
   );
 }
