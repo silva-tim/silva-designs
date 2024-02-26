@@ -5,7 +5,7 @@ export default function Header() {
   const path = location.pathname;
 
   return (
-    <div className="flex h-36 items-center bg-red-200">
+    <div className="sticky top-0 flex h-36 items-center border-b bg-white">
       <div className="flex basis-full flex-wrap justify-center gap-3">
         <Link to="/" className="basis-full text-center font-raleway text-3xl">
           S I L V A &nbsp; D E S I G N S

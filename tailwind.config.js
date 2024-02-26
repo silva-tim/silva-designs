@@ -7,6 +7,9 @@ export default {
         raleway: ["Raleway", "sans-serif"],
         playfair: ["Playfair Display", "sans-serif"],
       },
+      colors: {
+        custGreen: ["#61A46F"],
+      },
     },
   },
   plugins: [],
