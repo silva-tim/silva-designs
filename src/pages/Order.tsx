@@ -63,13 +63,10 @@ export default function Order() {
             />
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap divide-y">
           <span className="basis-full py-2 text-lg">Products</span>
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="basis-full border-x border-t border-black"
-            >
+            <div key={product.id} className="basis-full border-x border-black">
               <ProductLine item={product} />
             </div>
           ))}
