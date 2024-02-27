@@ -3,7 +3,6 @@ import { getCandles } from "../lib/Api";
 import { Product } from "../types/Product";
 import { useOrder } from "../lib/OrderContext";
 import QuantityChanger from "./QuantityChanger";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 type props = {
   item: Product;
@@ -20,8 +19,8 @@ export default function ProductLine({ item }: props) {
           name="fragrance"
           value={item.fragrance}
           onChange={(e) => onChangeFragrance(item.id, e.target.value)}
-          className="basis-full appearance-none border border-black p-2"
-          id="fragrance"
+          className="basis-full border border-black py-2"
+          id={`fragrance-${item.id}`}
         >
           {candles.map((candle) => (
             <option key={candle.id} value={candle.name}>
@@ -29,9 +28,6 @@ export default function ProductLine({ item }: props) {
             </option>
           ))}
         </select>
-        <label htmlFor="fragrance" className="absolute right-4 top-4 text-2xl">
-          <MdOutlineKeyboardArrowDown />
-        </label>
       </div>
       <div className="flex basis-full justify-evenly">
         <div className="flex basis-1/4 justify-center">
