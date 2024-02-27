@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getCandles } from "../lib/Api";
+import { getCandles } from "../lib/api";
 import { Product } from "../types/Product";
 import { useOrder } from "../lib/OrderContext";
 import QuantityChanger from "./QuantityChanger";

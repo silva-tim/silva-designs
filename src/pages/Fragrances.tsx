@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { Candle } from "../types/Candle";
-import { getCandles } from "../lib/Api";
+import { getCandles } from "../lib/api";
 
 export default function Fragrances() {
   const [candles, setCandles] = useState<Candle[]>();
