@@ -16,20 +16,20 @@ export default function Order() {
   } = useOrder();
 
   return (
-    <section className="m-auto w-8/12">
+    <section className="m-auto w-11/12">
       <div className="w-full border-b border-black py-3">
-        <span className="font-playfair text-2xl">Order</span>
+        <span className="font-playfair text-xl">Order</span>
       </div>
       <form>
         <div className="flex flex-wrap">
-          <span className="basis-full py-2 text-lg">Name</span>
-          <div className="flex basis-full gap-5">
+          <span className="basis-full py-2">Name</span>
+          <div className="flex basis-full flex-wrap gap-5">
             <input
               type="text"
               name="first"
               value={firstName}
               onChange={(e) => onSetFirst(e.target.value)}
-              className="basis-1/2 border border-black px-3 py-2"
+              className="basis-full border border-black px-3 py-2"
               placeholder="First"
             />
             <input
@@ -37,20 +37,20 @@ export default function Order() {
               name="last"
               value={lastName}
               onChange={(e) => onSetLast(e.target.value)}
-              className="basis-1/2 border border-black px-3 py-2"
+              className="basis-full border border-black px-3 py-2"
               placeholder="Last"
             />
           </div>
         </div>
         <div className="flex flex-wrap">
-          <span className="basis-full py-2 text-lg">Contact</span>
-          <div className="flex basis-full gap-5">
+          <span className="basis-full py-2">Contact</span>
+          <div className="flex basis-full flex-wrap gap-5">
             <input
               type="email"
               name="email"
               value={email}
               onChange={(e) => onSetEmail(e.target.value)}
-              className="basis-1/2 border border-black px-3 py-2"
+              className="basis-full border border-black px-3 py-2"
               placeholder="Email"
             />
             <input
@@ -58,18 +58,15 @@ export default function Order() {
               name="phone"
               value={phoneNumber}
               onChange={(e) => onSetPhone(e.target.value)}
-              className="basis-1/2 border border-black px-3 py-2"
+              className="basis-full border border-black px-3 py-2"
               placeholder="Phone Number"
             />
           </div>
         </div>
-        <div className="flex flex-wrap">
-          <span className="basis-full py-2 text-lg">Products</span>
+        <div className="flex flex-wrap divide-y">
+          <span className="basis-full py-2">Products</span>
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="basis-full border-x border-t border-black"
-            >
+            <div key={product.id} className="basis-full border-x border-black">
               <ProductLine item={product} />
             </div>
           ))}

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getCandles } from "../lib/Api";
 import { Product } from "../types/Product";
 import { useOrder } from "../lib/OrderContext";
 import QuantityChanger from "./QuantityChanger";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 type props = {
   item: Product;
@@ -12,16 +13,15 @@ export default function ProductLine({ item }: props) {
   const { onChangeFragrance, onRemoveProduct, onGift } = useOrder();
   const [candles] = useState(getCandles());
 
-  useEffect(() => {});
-
   return (
-    <div className="flex items-center">
-      <div className="flex basis-5/12 p-2">
+    <div className="flex h-16 items-center">
+      <div className="relative flex basis-5/12 p-2">
         <select
           name="fragrance"
           value={item.fragrance}
           onChange={(e) => onChangeFragrance(item.id, e.target.value)}
-          className="basis-full border border-black px-2 py-4"
+          className="basis-full appearance-none border border-black p-2"
+          id="fragrance"
         >
           {candles.map((candle) => (
             <option key={candle.id} value={candle.name}>
@@ -29,6 +29,9 @@ export default function ProductLine({ item }: props) {
             </option>
           ))}
         </select>
+        <label htmlFor="fragrance" className="absolute right-4 top-4 text-2xl">
+          <MdOutlineKeyboardArrowDown />
+        </label>
       </div>
       <div className="flex basis-2/12 justify-center">
         <QuantityChanger item={item} />

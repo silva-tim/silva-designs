@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <div className="m-auto w-8/12">
+    <section className="m-auto w-11/12">
       <div className="w-full border-b border-black py-3">
-        <span className="font-playfair text-2xl">About</span>
+        <span className="font-playfair text-xl">About</span>
       </div>
       <p className="mb-5">
         I never imagined taking on candle making in my retirement so here’s the
@@ -44,6 +44,6 @@ export default function About() {
         nature. Enjoy!
       </p>
       <p>-Joe Silva, Founder and Head Visionary of Silva Designs</p>
-    </div>
+    </section>
   );
 }

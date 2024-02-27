@@ -11,11 +11,11 @@ export default function Fragrances() {
   }, []);
 
   return (
-    <section className="w-8/12 m-auto">
-      <div className="w-full py-3 border-b border-black">
-        <span className="text-2xl font-playfair">Fragrances</span>
+    <section className="m-auto w-11/12">
+      <div className="w-full border-b border-black py-3">
+        <span className="font-playfair text-xl">Fragrances</span>
       </div>
-      <div className="flex flex-wrap mt-5">
+      <div className="mt-5 flex flex-wrap">
         {candles?.map((candle) => (
           <ProductCard
             prodAlt={candle.alt}
