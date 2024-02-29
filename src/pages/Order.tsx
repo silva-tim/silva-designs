@@ -23,7 +23,7 @@ export default function Order() {
       <form>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Name</span>
-          <div className="flex basis-full flex-wrap gap-5">
+          <div className="flex basis-full flex-wrap gap-5 sm:flex-nowrap">
             <input
               type="text"
               name="first"
@@ -44,7 +44,7 @@ export default function Order() {
         </div>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Contact</span>
-          <div className="flex basis-full flex-wrap gap-5">
+          <div className="flex basis-full flex-wrap gap-5 sm:flex-nowrap">
             <input
               type="email"
               name="email"
