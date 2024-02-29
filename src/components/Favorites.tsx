@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { getFavorites } from "../lib/Api";
+import { getFavorites } from "../lib/api";
 import { Candle } from "../types/Candle";
 
 export default function Favorites() {

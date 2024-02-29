@@ -17,13 +17,13 @@ export default function Order() {
 
   return (
     <section className="m-auto w-11/12">
-      <div className="w-full border-b border-black py-3">
+      <div className="w-full border-b border-black bg-red-500 py-3">
         <span className="font-playfair text-xl">Order</span>
       </div>
       <form>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Name</span>
-          <div className="flex basis-full flex-wrap gap-5">
+          <div className="flex basis-full flex-wrap gap-5 sm:flex-nowrap">
             <input
               type="text"
               name="first"
@@ -44,7 +44,7 @@ export default function Order() {
         </div>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Contact</span>
-          <div className="flex basis-full flex-wrap gap-5">
+          <div className="flex basis-full flex-wrap gap-5 sm:flex-nowrap">
             <input
               type="email"
               name="email"

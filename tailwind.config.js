@@ -8,7 +8,7 @@ export default {
         playfair: ["Playfair Display", "sans-serif"],
       },
       colors: {
-        custGreen: ["#61A46F"],
+        custGreen: ["#6fa869"],
       },
     },
   },
