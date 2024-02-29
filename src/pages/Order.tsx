@@ -17,7 +17,7 @@ export default function Order() {
 
   return (
     <section className="m-auto w-11/12">
-      <div className="w-full border-b border-black py-3">
+      <div className="w-full border-b border-black bg-red-500 py-3">
         <span className="font-playfair text-xl">Order</span>
       </div>
       <form>
@@ -82,5 +82,3 @@ export default function Order() {
     </section>
   );
 }
-
-//testing
