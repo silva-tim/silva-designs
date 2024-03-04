@@ -15,6 +15,12 @@ export default function Order() {
     onAddProduct,
   } = useOrder();
 
+  let quantity = 0;
+  products.forEach((product) => (quantity += product.quantity));
+
+  let total = 0;
+  products.forEach((product) => (total += product.price));
+
   return (
     <section className="m-auto w-11/12">
       <div className="w-full border-b border-black py-3">
@@ -78,6 +84,14 @@ export default function Order() {
         >
           Add Product
         </button>
+        <div className="flex flex-wrap justify-around">
+          <span className="basis-full py-2 text-center font-playfair">
+            Order Summary
+          </span>
+          <span className="basis-1/3 py-2">Quantity: {quantity}</span>
+          <span className="basis-1/3 py-2">Price: ${total}</span>
+          <button className="basis-full bg-green-200 p-2">Place Order</button>
+        </div>
       </form>
     </section>
   );
