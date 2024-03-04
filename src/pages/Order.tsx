@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import ProductLine from "../components/ProductLine";
 import { useOrder } from "../lib/OrderContext";
 
@@ -15,6 +16,16 @@ export default function Order() {
     onAddProduct,
   } = useOrder();
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    let fullOrder = `Order:`;
+    products.forEach(
+      (product) =>
+        (fullOrder += "\n" + product.fragrance + ": " + product.quantity),
+    );
+    console.log(fullOrder);
+  }
+
   let quantity = 0;
   products.forEach((product) => (quantity += product.quantity));
 
@@ -26,7 +37,7 @@ export default function Order() {
       <div className="w-full border-b border-black py-3">
         <span className="font-playfair text-xl">Order</span>
       </div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Name</span>
           <div className="flex basis-full flex-wrap gap-5 sm:flex-nowrap">
@@ -90,7 +101,9 @@ export default function Order() {
           </span>
           <span className="basis-1/3 py-2">Quantity: {quantity}</span>
           <span className="basis-1/3 py-2">Price: ${total}</span>
-          <button className="basis-full bg-green-200 p-2">Place Order</button>
+          <button type="submit" className="basis-full bg-green-200 p-2">
+            Place Order
+          </button>
         </div>
       </form>
     </section>
