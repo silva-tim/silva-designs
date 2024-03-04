@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import ProductLine from "../components/ProductLine";
 import { useOrder } from "../lib/OrderContext";
+import emailjs from "@emailjs/browser";
 
 export default function Order() {
   const {
@@ -16,7 +17,7 @@ export default function Order() {
     onAddProduct,
   } = useOrder();
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     let fullOrder = `Order:`;
     products.forEach(
@@ -24,6 +25,23 @@ export default function Order() {
         (fullOrder += "\n" + product.fragrance + ": " + product.quantity),
     );
     console.log(fullOrder);
+
+    const publicKey = "TVcmhPJafk29wMXb9";
+    const templateParams = {
+      test: fullOrder,
+    };
+
+    try {
+      const sendMail = await emailjs.send(
+        "service_btl2f4q",
+        "template_1cb5c9n",
+        templateParams,
+        publicKey,
+      );
+      return sendMail;
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   let quantity = 0;
