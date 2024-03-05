@@ -22,26 +22,39 @@ export default function Order() {
     let fullOrder = `Order:`;
     products.forEach(
       (product) =>
-        (fullOrder += "\n" + product.fragrance + ": " + product.quantity),
+        (fullOrder +=
+          "\n" +
+          product.fragrance +
+          ": " +
+          product.quantity +
+          ", $" +
+          product.price +
+          "  Gift: " +
+          product.gift),
     );
     console.log(fullOrder);
 
     const publicKey = "TVcmhPJafk29wMXb9";
-    const templateParams = {
-      test: fullOrder,
-    };
+    //     const templateParams = {
+    //       first_name:
+    // last_name:
+    // email:
+    // phone:
+    // pref_contact:
+    //       test: fullOrder,
+    //     };
 
-    try {
-      const sendMail = await emailjs.send(
-        "service_btl2f4q",
-        "template_1cb5c9n",
-        templateParams,
-        publicKey,
-      );
-      return sendMail;
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   const sendMail = await emailjs.send(
+    //     "service_btl2f4q",
+    //     "template_1cb5c9n",
+    //     templateParams,
+    //     publicKey,
+    //   );
+    //   return sendMail;
+    // } catch (err) {
+    //   console.error(err);
+    // }
   }
 
   let quantity = 0;
