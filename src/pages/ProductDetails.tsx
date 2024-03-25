@@ -14,7 +14,7 @@ export default function ProductDetails() {
   }, [prodId]);
 
   return (
-    <div className="m-auto my-4 flex w-11/12 flex-wrap">
+    <div className="m-auto my-4 flex w-10/12 flex-wrap">
       <div className="basis-full">
         <img src={candle?.image} alt={candle?.alt} />
       </div>
