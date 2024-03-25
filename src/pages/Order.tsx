@@ -71,13 +71,13 @@ export default function Order() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Name</span>
-          <div className="flex basis-full flex-wrap sm:flex-nowrap">
+          <div className="flex basis-full flex-wrap sm:flex-nowrap sm:gap-5">
             <input
               type="text"
               name="first"
               value={firstName}
               onChange={(e) => onSetFirst(e.target.value)}
-              className="basis-full border-x border-t border-black px-3 py-2"
+              className="basis-full border-x border-t border-black px-3 py-2 sm:border"
               placeholder="First"
             />
             <input
@@ -85,20 +85,20 @@ export default function Order() {
               name="last"
               value={lastName}
               onChange={(e) => onSetLast(e.target.value)}
-              className="basis-full border border-black px-3 py-2"
+              className="basis-full border border-black px-3 py-2 "
               placeholder="Last"
             />
           </div>
         </div>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Contact</span>
-          <div className="flex basis-full flex-wrap sm:flex-nowrap">
+          <div className="flex basis-full flex-wrap sm:flex-nowrap sm:gap-5">
             <input
               type="email"
               name="email"
               value={email}
               onChange={(e) => onSetEmail(e.target.value)}
-              className="basis-full border-x border-t border-black px-3 py-2"
+              className="basis-full border-x border-t border-black px-3 py-2 sm:border"
               placeholder="Email"
             />
             <input
