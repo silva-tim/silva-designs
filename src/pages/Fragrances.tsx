@@ -11,7 +11,7 @@ export default function Fragrances() {
   }, []);
 
   return (
-    <section className="m-auto w-11/12">
+    <div className="xl:max-w-3xl2xl m-auto my-4 max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
       <div className="w-full border-b border-black py-3">
         <span className="font-playfair text-xl">Fragrances</span>
       </div>
@@ -26,6 +26,6 @@ export default function Fragrances() {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 }

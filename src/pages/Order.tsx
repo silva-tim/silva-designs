@@ -62,20 +62,20 @@ export default function Order() {
   products.forEach((product) => (total += product.price));
 
   return (
-    <section className="m-auto w-11/12">
+    <div className="xl:max-w-3xl2xl m-auto my-4 max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
       <div className="w-full border-b border-black py-3">
         <span className="font-playfair text-xl">Order</span>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Name</span>
-          <div className="flex basis-full flex-wrap sm:flex-nowrap sm:gap-5">
+          <div className="flex basis-full flex-wrap md:flex-nowrap md:gap-5">
             <input
               type="text"
               name="first"
               value={firstName}
               onChange={(e) => onSetFirst(e.target.value)}
-              className="basis-full border-x border-t border-black px-3 py-2 sm:border"
+              className="basis-full border-x border-t border-black px-3 py-2 md:border"
               placeholder="First"
             />
             <input
@@ -90,13 +90,13 @@ export default function Order() {
         </div>
         <div className="flex flex-wrap">
           <span className="basis-full py-2">Contact</span>
-          <div className="flex basis-full flex-wrap sm:flex-nowrap sm:gap-5">
+          <div className="flex basis-full flex-wrap md:flex-nowrap md:gap-5">
             <input
               type="email"
               name="email"
               value={email}
               onChange={(e) => onSetEmail(e.target.value)}
-              className="basis-full border-x border-t border-black px-3 py-2 sm:border"
+              className="basis-full border-x border-t border-black px-3 py-2 md:border"
               placeholder="Email"
             />
             <input
@@ -140,6 +140,6 @@ export default function Order() {
           </button>
         </div>
       </form>
-    </section>
+    </div>
   );
 }
