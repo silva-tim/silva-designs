@@ -19,7 +19,7 @@ export default function Order() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    let fullOrder = `Order:`;
+    let fullOrder = ``;
     products.forEach(
       (product) =>
         (fullOrder +=
@@ -32,29 +32,27 @@ export default function Order() {
           "\nGift: " +
           product.gift),
     );
-    console.log(fullOrder);
 
     const publicKey = "TVcmhPJafk29wMXb9";
-    //     const templateParams = {
-    //       first_name:
-    // last_name:
-    // email:
-    // phone:
-    // pref_contact:
-    //       test: fullOrder,
-    //     };
+    const templateParams = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: phoneNumber,
+      test: fullOrder,
+    };
 
-    // try {
-    //   const sendMail = await emailjs.send(
-    //     "service_btl2f4q",
-    //     "template_1cb5c9n",
-    //     templateParams,
-    //     publicKey,
-    //   );
-    //   return sendMail;
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    try {
+      const sendMail = await emailjs.send(
+        "service_btl2f4q",
+        "template_1cb5c9n",
+        templateParams,
+        publicKey,
+      );
+      return sendMail;
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   let quantity = 0;
@@ -126,13 +124,18 @@ export default function Order() {
         >
           Add Product
         </button>
-        <div className="flex flex-wrap justify-around">
-          <span className="basis-full py-2 text-center font-playfair">
+        <div className="mt-5 flex flex-wrap justify-around">
+          <span className="basis-full py-2 text-center font-playfair underline underline-offset-4">
             Order Summary
           </span>
-          <span className="basis-1/3 py-2">Quantity: {quantity}</span>
-          <span className="basis-1/3 py-2">Price: ${total}</span>
-          <button type="submit" className="basis-full bg-green-200 p-2">
+          <span className="basis-1/2 py-2 text-center">
+            Quantity: {quantity}
+          </span>
+          <span className="basis-1/2 py-2 text-center">Price: ${total}</span>
+          <button
+            type="submit"
+            className="basis-full border border-black bg-green-300 p-2"
+          >
             Place Order
           </button>
         </div>
