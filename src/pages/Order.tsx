@@ -39,7 +39,7 @@ export default function Order() {
       last_name: lastName,
       email: email,
       phone: phoneNumber,
-      test: fullOrder,
+      order: fullOrder,
     };
 
     try {
