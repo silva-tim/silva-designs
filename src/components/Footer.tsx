@@ -26,7 +26,7 @@ export default function Footer() {
         <img
           src="/android-chrome-512x512.png"
           alt="Silva Designs Logo"
-          className="w-full"
+          className="w-full lg:w-1/2"
         />
       </div>
       <div className="hidden basis-1/4 flex-wrap justify-center md:flex">
